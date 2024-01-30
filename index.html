@@ -7,6 +7,20 @@
     <title>Todolist</title>
 </head>
 <body>
+    <div id="app">
+        <ul>
+            <li v-for="(todo, index) in todos" :key="index">
+                <span :class="{ done: todo.done }" @click="toggleDone(index)">
+                    {{ todo.text }}
+                </span>
+                <span class="remove" @click="removeTodo(index)">x</span>
+            </li>
+        </ul>
+        <input v-model="newTodo" @keyup.enter="addTodo">
+        <button @click="addTodo">Aggiungi</button>
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

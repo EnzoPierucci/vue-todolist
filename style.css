@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.remove {
+    color: red;
+    margin-left: 10px;
+    cursor: pointer;
+}
