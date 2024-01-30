@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Todolist</title>
 </head>
 <body>
-    <div id="app">
-        <ul>
-            <li v-for="(todo, index) in todos" :key="index">
-                <span :class="{ done: todo.done }" @click="toggleDone(index)">
+    <div id="app" class="container mt-5">
+        <ul class="list-group">
+            <li v-for="(todo, index) in todos" :key="index" class="list-group-item d-flex justify-content-between align-items-center">
+                <span :class="{ 'text-decoration-line-through': todo.done }" @click="toggleDone(index)">
                     {{ todo.text }}
                 </span>
-                <span class="remove" @click="removeTodo(index)">x</span>
+                <button class="btn btn-danger btn-sm" @click="removeTodo(index)">Rimuovi</button>
             </li>
         </ul>
-        <input v-model="newTodo" @keyup.enter="addTodo">
-        <button @click="addTodo">Aggiungi</button>
+        <div class="input-group mt-3">
+            <input type="text" v-model="newTodo" class="form-control" @keyup.enter="addTodo" placeholder="Aggiungi un nuovo todo">
+            <div class="input-group-append">
+                <button class="btn btn-primary" @click="addTodo">Aggiungi</button>
+            </div>
+        </div>
     </div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
